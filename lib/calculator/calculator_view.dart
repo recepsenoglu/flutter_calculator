@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/product/widgets/screen_widget.dart';
 import 'package:flutter_calculator/product/widgets/solar_panel_box.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,10 +15,18 @@ class _CalculatorViewState extends State<CalculatorView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
+      body: Column(
+        children: const [
+          ScreenWidget(),
+        ],
+      ),
     );
   }
 
   AppBar _appBar() {
+    const String strCasio = "CASIO";
+    const String strCalculator = "CALCULATOR";
+    
     return AppBar(
       centerTitle: false,
       toolbarHeight: 52,
@@ -27,7 +36,7 @@ class _CalculatorViewState extends State<CalculatorView> {
         children: [
           const SizedBox(height: 10),
           Text(
-            "CASIO",
+            strCasio,
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -37,7 +46,7 @@ class _CalculatorViewState extends State<CalculatorView> {
             ),
           ),
           Text(
-            "CALCULATOR",
+            strCalculator,
             style: TextStyle(
               color: const Color(0xFFA8A8A8),
               fontWeight: FontWeight.bold,
