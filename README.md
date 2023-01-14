@@ -1,2 +1,3 @@
 # Flutter Calculator App
-A calculator app built with flutter
+
+I am currently working on this project. I will update it as I progress
