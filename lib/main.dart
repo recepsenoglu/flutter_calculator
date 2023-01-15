@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_calculator/calculator/calculator_view.dart';
+import 'package:flutter_calculator/model/calculator_model.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => CalculatorModel(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/model/calculator_model.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ScreenWidget extends StatelessWidget {
   const ScreenWidget({super.key});
@@ -34,7 +36,7 @@ class ScreenWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 24),
                   child: Text(
-                    "12/2*49+50",
+                    Provider.of<CalculatorModel>(context).operationHistory,
                     style: TextStyle(
                       fontSize: 26,
                       fontFamily: GoogleFonts.roboto().fontFamily,
@@ -46,7 +48,7 @@ class ScreenWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 24),
                   child: Text(
-                    "290",
+                    Provider.of<CalculatorModel>(context).result,
                     style: TextStyle(
                       fontSize: 50,
                       fontFamily: GoogleFonts.roboto().fontFamily,
