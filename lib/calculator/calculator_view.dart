@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/product/widgets/screen_widget.dart';
-import 'package:flutter_calculator/product/widgets/solar_panel_box.dart';
+import 'package:flutter_calculator/product/widgets/calculator_keypad.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../product/widgets/screen_widget.dart';
+import '../product/widgets/solar_panel_box.dart';
 
 class CalculatorView extends StatefulWidget {
   const CalculatorView({super.key});
@@ -18,6 +20,7 @@ class _CalculatorViewState extends State<CalculatorView> {
       body: Column(
         children: const [
           ScreenWidget(),
+          CalculatorKeypad(),
         ],
       ),
     );
@@ -26,7 +29,7 @@ class _CalculatorViewState extends State<CalculatorView> {
   AppBar _appBar() {
     const String strCasio = "CASIO";
     const String strCalculator = "CALCULATOR";
-    
+
     return AppBar(
       centerTitle: false,
       toolbarHeight: 52,
