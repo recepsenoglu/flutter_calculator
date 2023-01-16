@@ -18,9 +18,9 @@ class CalculatorKeypad extends StatelessWidget {
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
           children: List.generate(19, (index) {
-            final String keyLabel = CalculatorKeys.keyList[index][0];
-            final KeyType keyType = CalculatorKeys.keyList[index][1];
-            
+            final String keyLabel = CalculatorKeys.keys.keys.toList()[index];
+            final KeyType keyType = CalculatorKeys.keys.values.toList()[index];
+
             return StaggeredGridTile.count(
               crossAxisCellCount: index == 16 ? 2 : 1,
               mainAxisCellCount: 1,

@@ -8,6 +8,18 @@ class ScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String result = Provider.of<CalculatorModel>(context).result;
+    final List<String> operations =
+        Provider.of<CalculatorModel>(context).operations;
+    String operationHistory =
+        Provider.of<CalculatorModel>(context).operations.join();
+    if (operations.isEmpty) {
+      result = "0";
+    } else if (operations.length < 2) {
+      result = operations.first;
+      operationHistory = "";
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       child: Stack(
@@ -36,7 +48,7 @@ class ScreenWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 24),
                   child: Text(
-                    Provider.of<CalculatorModel>(context).operationHistory,
+                    operationHistory,
                     style: TextStyle(
                       fontSize: 26,
                       fontFamily: GoogleFonts.roboto().fontFamily,
@@ -48,7 +60,7 @@ class ScreenWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 24),
                   child: Text(
-                    Provider.of<CalculatorModel>(context).result,
+                    result,
                     style: TextStyle(
                       fontSize: 50,
                       fontFamily: GoogleFonts.roboto().fontFamily,

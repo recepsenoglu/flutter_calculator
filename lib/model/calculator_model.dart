@@ -1,19 +1,45 @@
 import 'package:flutter/material.dart';
 
 class CalculatorModel extends ChangeNotifier {
-  String _operationHistory = "1+1";
-  String _result = "0";
+  final List<String> _operations = [];
+  String _result = "";
 
-  String get operationHistory => _operationHistory;
+  List<String> get operations => _operations;
   String get result => _result;
-
-  void updateOperationHistory(String value) {
-    _operationHistory = value;
-    notifyListeners();
-  }
 
   void updateResult(String value) {
     _result = value;
+    notifyListeners();
+  }
+
+  void addToOperations(String value) {
+    _operations.add(value);
+    notifyListeners();
+  }
+
+  void fixLastOperation(String value) {
+    if (_operations.isNotEmpty) {
+      _operations.last = value;
+    } else {
+      _operations.add(value);
+    }
+    notifyListeners();
+  }
+
+  void deleteOneChar() {
+    if (_operations.isNotEmpty) {
+      String lastValue = _operations.last;
+      if (lastValue.length < 2) {
+        _operations.removeLast();
+      } else {
+        _operations.last = lastValue.substring(0, lastValue.length - 1);
+      }
+    }
+    notifyListeners();
+  }
+
+  void clearOperations() {
+    _operations.clear();
     notifyListeners();
   }
 }

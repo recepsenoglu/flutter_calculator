@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/model/calculator_model.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
+import '../../utils/action_maker.dart';
 import '../constant/calculator_keys.dart';
 
 class CalculatorButton extends StatelessWidget {
@@ -24,9 +23,7 @@ class CalculatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Provider.of<CalculatorModel>(context,listen: false).updateResult(label);
-      },
+      onTap: () => ActionMaker.keyPressed(context, label, keyType),
       child: AspectRatio(
         aspectRatio: 1,
         child: Stack(children: [
