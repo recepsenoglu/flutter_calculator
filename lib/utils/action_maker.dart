@@ -89,7 +89,25 @@ class ActionMaker {
       values[index + 1] = result.toString();
     }
 
-    return double.parse(values.last).toStringAsFixed(2);
+    return _fixedResult(values.last);
   }
 
+  static String _fixedResult(String strNumber) {
+    double? number = double.tryParse(strNumber);
+
+    if (number == null) return "0";
+
+    if (number % 1 == 0) return number.round().toString();
+
+    if (number.round().toString().length > 9) {
+      return number.toStringAsExponential(2);
+    }
+
+    if (double.parse(number.toStringAsFixed(2)) ==
+        double.parse(number.toStringAsFixed(1))) {
+      return number.toStringAsFixed(1);
+    }
+
+    return number.toStringAsFixed(2);
+  }
 }
