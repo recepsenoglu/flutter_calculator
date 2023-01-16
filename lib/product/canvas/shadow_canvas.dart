@@ -23,11 +23,11 @@ class ShadowCanvas extends CustomPainter {
     final Paint paint = Paint()..shader = gradient.createShader(colorBounds);
 
     Path path = Path();
-    path.moveTo(100, 15);
-    path.lineTo(15, 100);
-    path.lineTo(15, 250);
-    path.lineTo(size.width, 250);
-    path.lineTo(size.width, 15);
+    path.moveTo(100, 10);
+    path.lineTo(10, 100);
+    path.lineTo(10, 240);
+    path.lineTo(size.width, 240);
+    path.lineTo(size.width, 10);
     path.close();
 
     canvas.drawPath(path, paint);

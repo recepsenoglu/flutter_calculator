@@ -25,8 +25,8 @@ class BorderCanvas extends CustomPainter {
     Path path = Path();
     path.moveTo(75, 0);
     path.lineTo(0, 65);
-    path.lineTo(0, 240);
-    path.lineTo(size.width - 10, 240);
+    path.lineTo(0, 230);
+    path.lineTo(size.width - 10, 230);
     path.lineTo(size.width - 10, 0);
     path.close();
 

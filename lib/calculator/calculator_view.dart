@@ -19,8 +19,11 @@ class _CalculatorViewState extends State<CalculatorView> {
       appBar: _appBar(),
       body: Column(
         children: const [
+          Spacer(),
           ScreenWidget(),
+          Spacer(),
           CalculatorKeypad(),
+          SizedBox(height: 30)
         ],
       ),
     );

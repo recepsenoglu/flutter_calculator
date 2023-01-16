@@ -35,20 +35,20 @@ class ScreenWidget extends StatelessWidget {
           CustomPaint(
             painter: ScreenCanvas(),
             child: Container(
-              height: 240,
+              height: 230,
               margin: const EdgeInsets.only(bottom: 10, right: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    padding: const EdgeInsets.fromLTRB(32, 0, 22, 0),
                     child: Text(
                       operationHistory,
-                      maxLines: 3,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 26,
                         fontFamily: GoogleFonts.roboto().fontFamily,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF707070),
@@ -62,7 +62,7 @@ class ScreenWidget extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 58,
+                        fontSize: 54,
                         fontFamily: GoogleFonts.roboto().fontFamily,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
