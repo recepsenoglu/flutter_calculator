@@ -8,7 +8,7 @@ class CalculatorKeys {
   static Map<String, KeyType> keys = {
     "AC": KeyType.helper,
     "C": KeyType.helper,
-    "%": KeyType.helper,
+    "%": KeyType.operator,
     "÷": KeyType.operator,
     "7": KeyType.digit,
     "8": KeyType.digit,

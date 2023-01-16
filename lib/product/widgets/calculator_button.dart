@@ -14,7 +14,7 @@ class CalculatorButton extends StatelessWidget {
     required this.keyType,
   });
 
-  Color get getLabelColor => keyType == KeyType.helper
+  Color get getLabelColor => keyType == KeyType.helper || label == "%"
       ? const Color(0xFF75C0D0)
       : keyType == KeyType.operator
           ? const Color(0xFFEBB04F)

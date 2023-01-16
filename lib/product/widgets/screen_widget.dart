@@ -16,8 +16,10 @@ class ScreenWidget extends StatelessWidget {
     if (operations.isEmpty) {
       result = "0";
     } else if (operations.length < 4) {
-      result = operations.join();
-      operationHistory = "";
+      if (result.isEmpty) {
+        result = operations.join();
+        operationHistory = "";
+      }
     }
 
     return Padding(

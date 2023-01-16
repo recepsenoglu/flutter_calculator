@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_calculator/model/calculator_model.dart';
 import 'package:flutter_calculator/product/constant/calculator_keys.dart';
@@ -21,13 +19,11 @@ class ActionMaker {
         provider.deleteOneChar();
       }
     } else if (keyType == KeyType.operator) {
+      if (operations.length > 2) {
+        provider.updateResult(_calculate(operations));
+      }
       if (operations.isNotEmpty) {
-        if (value == "=") {
-          if (operations.length > 2) {
-            provider.updateResult(_calculate(operations));
-            provider.clearOperations();
-          }
-        } else {
+        if (value != "=") {
           if (lastValueType == KeyType.operator) {
             provider.fixLastOperation(value);
           } else {
@@ -36,7 +32,6 @@ class ActionMaker {
                   lastValue.substring(0, lastValue.length - 1));
             }
             provider.addToOperations(value);
-            provider.updateResult(_calculate(operations));
           }
         }
       }
@@ -61,11 +56,40 @@ class ActionMaker {
         }
       }
     }
-    log(operations.toString());
   }
 
   static String _calculate(List<String> operations) {
-    // do calculation (gonna fix this later)
-    return operations.first;
+    List<String> values = List<String>.from(operations);
+
+    if (CalculatorKeys.keys[values.last] == KeyType.operator) {
+      values.removeLast();
+    }
+
+    for (var index = 1; index < values.length; index += 2) {
+      double? valueA = double.tryParse(values[index - 1]);
+      String operator = values[index];
+      double? valueB = double.tryParse(values[index + 1]);
+
+      if (valueA == null || valueB == null) continue;
+
+      double result = 0.0;
+      if (operator == "x") {
+        result = valueA * valueB;
+      } else if (operator == "÷") {
+        result = valueA / valueB;
+      } else if (operator == "-") {
+        result = valueA - valueB;
+      } else if (operator == "+") {
+        result = valueA + valueB;
+      } else if (operator == "%") {
+        result = (valueA * valueB) / 100;
+      }
+      values[index - 1] = '';
+      values[index] = '';
+      values[index + 1] = result.toString();
+    }
+
+    return double.parse(values.last).toStringAsFixed(2);
   }
+
 }
