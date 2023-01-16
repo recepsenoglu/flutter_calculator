@@ -15,8 +15,8 @@ class ScreenWidget extends StatelessWidget {
         Provider.of<CalculatorModel>(context).operations.join();
     if (operations.isEmpty) {
       result = "0";
-    } else if (operations.length < 2) {
-      result = operations.first;
+    } else if (operations.length < 4) {
+      result = operations.join();
       operationHistory = "";
     }
 
@@ -46,11 +46,13 @@ class ScreenWidget extends StatelessWidget {
               children: [
                 const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(right: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Text(
                     operationHistory,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 26,
+                      fontSize: 28,
                       fontFamily: GoogleFonts.roboto().fontFamily,
                       fontWeight: FontWeight.bold,
                       color: const Color(0xFF707070),
@@ -58,11 +60,13 @@ class ScreenWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Text(
                     result,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 50,
+                      fontSize: 58,
                       fontFamily: GoogleFonts.roboto().fontFamily,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
