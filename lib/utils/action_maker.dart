@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_calculator/model/calculator_model.dart';
-import 'package:flutter_calculator/product/constant/calculator_keys.dart';
+import 'package:flutter_calculator/constant/calculator_keys.dart';
 import 'package:provider/provider.dart';
 
 class ActionMaker {

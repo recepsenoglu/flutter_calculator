@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_calculator/calculator/calculator_view.dart';
-import 'package:flutter_calculator/model/calculator_model.dart';
+import 'calculator/calculator_view.dart';
+import 'model/calculator_model.dart';
+import 'constant/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,14 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Calculator App',
       home: const CalculatorView(),
       themeMode: ThemeMode.light,
-      theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: const Color(0xFFEFEFEF),
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          backgroundColor: Color(0xFFEFEFEF),
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
-        ),
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
     );
   }
 }
