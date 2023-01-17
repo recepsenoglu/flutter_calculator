@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/model/theme_model.dart';
 import 'calculator/calculator_view.dart';
 import 'model/calculator_model.dart';
 import 'constant/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => CalculatorModel(), child: const MyApp()));
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<ThemeModel>(create: (_) => ThemeModel()),
+      ChangeNotifierProvider<CalculatorModel>(create: (_) => CalculatorModel()),
+    ],
+    child: ChangeNotifierProvider(
+        create: (context) => CalculatorModel(), child: const MyApp()),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,12 +21,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Calculator App',
-      home: const CalculatorView(),
-      themeMode: ThemeMode.light,
-      theme: lightTheme,
-      darkTheme: darkTheme,
+    return Consumer<ThemeModel>(
+      builder: (context, ThemeModel themeProvider, child) {
+        return MaterialApp(
+          title: 'Flutter Calculator App',
+          home: const CalculatorView(),
+          themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+        );
+      },
     );
   }
 }
