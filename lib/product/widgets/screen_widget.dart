@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/calculator_model.dart';
@@ -29,11 +28,13 @@ class ScreenWidget extends StatelessWidget {
       child: Stack(
         children: [
           CustomPaint(
-            painter: ShadowCanvas(),
+            painter: ShadowCanvas(
+                backgroundColor: Theme.of(context).colorScheme.shadow),
             child: Container(),
           ),
           CustomPaint(
-            painter: ScreenCanvas(),
+            painter: ScreenCanvas(
+                backgroundColor: Theme.of(context).colorScheme.onSurface),
             child: Container(
               height: 230,
               margin: const EdgeInsets.only(bottom: 10, right: 10),
@@ -47,12 +48,7 @@ class ScreenWidget extends StatelessWidget {
                       operationHistory,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontFamily: GoogleFonts.roboto().fontFamily,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFF707070),
-                      ),
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                   ),
                   Padding(
@@ -61,29 +57,25 @@ class ScreenWidget extends StatelessWidget {
                       result,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 54,
-                        fontFamily: GoogleFonts.roboto().fontFamily,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ),
                   const Spacer(),
                   Container(
                     height: 16,
-                    color: const Color(0xFFDCEDF0),
+                    color: Theme.of(context).colorScheme.primaryContainer,
                   ),
                   Container(
                     height: 16,
-                    color: const Color(0xFFF9E9CF),
+                    color: Theme.of(context).colorScheme.secondaryContainer,
                   )
                 ],
               ),
             ),
           ),
           CustomPaint(
-            painter: BorderCanvas(),
+            painter: BorderCanvas(
+                backgroundColor: Theme.of(context).colorScheme.shadow),
             child: Container(),
           ),
         ],

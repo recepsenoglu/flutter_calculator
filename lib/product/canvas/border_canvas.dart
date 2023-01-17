@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class BorderCanvas extends CustomPainter {
   BorderCanvas({
-    this.backgroundColor,
+    this.backgroundColor = Colors.black,
   });
 
-  final Color? backgroundColor;
+  final Color backgroundColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    Gradient gradient = const LinearGradient(
+    Gradient gradient = LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
-      colors: [Colors.black, Colors.black],
+      colors: [backgroundColor, backgroundColor],
       tileMode: TileMode.clamp,
     );
 

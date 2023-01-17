@@ -6,23 +6,25 @@ class SolarPanelBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 6),
+      padding: const EdgeInsets.only(left: 4),
       child: Stack(
         children: [
           Container(
-            width: 22,
-            height: 22,
-            margin: const EdgeInsets.only(left: 3, top: 3),
-            decoration: const BoxDecoration(color: Colors.black),
+            width: 21,
+            height: 21,
+            margin: const EdgeInsets.only(left: 2.5, top: 2.5),
+            decoration:
+                BoxDecoration(color: Theme.of(context).colorScheme.outline),
           ),
           Container(
-            width: 22,
-            height: 22,
-            margin: const EdgeInsets.only(right: 3, bottom: 3),
+            width: 21,
+            height: 21,
+            margin: const EdgeInsets.only(right: 2.5, bottom: 2.5),
             decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
-                border: Border.all(color: Colors.black, width: 2),
-                borderRadius: BorderRadius.circular(2)),
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.outline, width: 2),
+                borderRadius: BorderRadius.circular(1)),
           ),
         ],
       ),
