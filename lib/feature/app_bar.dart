@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/model/theme_model.dart';
 import 'package:provider/provider.dart';
 
+import '../model/theme_model.dart';
 import '../product/widgets/solar_panel_box.dart';
 
 class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -27,24 +27,6 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  Widget _themeSwitch(BuildContext context) {
-    return Expanded(
-      child: Consumer<ThemeModel>(
-        builder: (context, ThemeModel themeProvider, child) {
-          return CupertinoSwitch(
-            value: themeProvider.isDark,
-            onChanged: (isDark) {
-              themeProvider.changeTheme(isDark);
-            },
-            activeColor: const Color(0xFF75C0D0),
-            trackColor: const Color(0xFFEBB04F),
-            thumbColor: themeProvider.isDark ? Colors.black : Colors.white,
-          );
-        },
-      ),
-    );
-  }
-
   Widget _brandName(BuildContext context) {
     const String strCasio = "CASIO";
     const String strCalculator = "CALCULATOR";
@@ -59,6 +41,24 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
             Text(strCalculator, style: Theme.of(context).textTheme.titleSmall),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _themeSwitch(BuildContext context) {
+    return Expanded(
+      child: Consumer<ThemeModel>(
+        builder: (context, ThemeModel themeProvider, child) {
+          return CupertinoSwitch(
+            value: themeProvider.isDark,
+            onChanged: (isDark) {
+              themeProvider.changeTheme(isDark);
+            },
+            activeColor: const Color(0xFF75C0D0),
+            trackColor: const Color(0xFFEBB04F),
+            thumbColor: themeProvider.isDark ? Colors.black : Colors.white,
+          );
+        },
       ),
     );
   }

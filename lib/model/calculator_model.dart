@@ -17,7 +17,7 @@ class CalculatorModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void fixLastOperation(String value) {
+  void updateLastOperation(String value) {
     if (_operations.isNotEmpty) {
       _operations.last = value;
     } else {

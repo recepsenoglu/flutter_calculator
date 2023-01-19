@@ -25,10 +25,10 @@ class ActionMaker {
       if (operations.isNotEmpty) {
         if (value != "=") {
           if (lastValueType == KeyType.operator) {
-            provider.fixLastOperation(value);
+            provider.updateLastOperation(value);
           } else {
             if (lastValue!.endsWith(".")) {
-              provider.fixLastOperation(
+              provider.updateLastOperation(
                   lastValue.substring(0, lastValue.length - 1));
             }
             provider.addToOperations(value);
@@ -48,10 +48,10 @@ class ActionMaker {
         } else {
           if (value == ".") {
             if (lastValue.contains(".") == false) {
-              provider.fixLastOperation(lastValue + value);
+              provider.updateLastOperation(lastValue + value);
             }
           } else {
-            provider.fixLastOperation(lastValue + value);
+            provider.updateLastOperation(lastValue + value);
           }
         }
       }

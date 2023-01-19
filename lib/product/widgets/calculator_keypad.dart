@@ -10,7 +10,8 @@ class CalculatorKeypad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22)
+          .copyWith(bottom: 30),
       child: SizedBox(
         width: double.infinity,
         child: StaggeredGrid.count(

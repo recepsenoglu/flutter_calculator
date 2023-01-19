@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/calculator/app_bar.dart';
+import 'package:flutter_calculator/feature/app_bar.dart';
 import 'package:flutter_calculator/product/widgets/calculator_keypad.dart';
 import '../product/widgets/screen_widget.dart';
 
@@ -16,12 +16,10 @@ class _CalculatorViewState extends State<CalculatorView> {
     return Scaffold(
       appBar: const CalculatorAppBar(),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
-          Spacer(),
           ScreenWidget(),
-          Spacer(),
           CalculatorKeypad(),
-          SizedBox(height: 30)
         ],
       ),
     );
