@@ -40,9 +40,10 @@
 
 
 ## Screenshots
-![Calculator app light theme](./img_preview/light_theme.png)
+Light Theme             |  Dark Theme
+:-------------------------:|:-------------------------:
+<img src="./img_preview/light_theme.png" width=300/> | <img src="./img_preview/dark_theme.png" width=300/>
 
-![Calculator app dark theme](./img_preview/dark_theme.png)
 
 
 ## Setup
