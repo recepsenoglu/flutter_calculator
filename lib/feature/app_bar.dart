@@ -54,9 +54,10 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
             onChanged: (isDark) {
               themeProvider.changeTheme(isDark);
             },
-            activeColor: const Color(0xFF75C0D0),
-            trackColor: const Color(0xFFEBB04F),
-            thumbColor: themeProvider.isDark ? Colors.black : Colors.white,
+            activeColor: const Color(0xFF363636),
+            trackColor: Colors.white,
+            thumbColor:
+                themeProvider.isDark ? const Color(0xFF75C0D0) : const Color(0xFFEBB04F),
           );
         },
       ),
