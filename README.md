@@ -8,6 +8,7 @@
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
+* [Preview](#preview)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
@@ -42,8 +43,10 @@
 ## Screenshots
 Light Theme             |  Dark Theme
 :-------------------------:|:-------------------------:
-<img src="./img_preview/light_theme.png" width=300/> | <img src="./img_preview/dark_theme.png" width=300/>
+<img src="./preview/light_theme.png" width=300/> | <img src="./preview/dark_theme.png" width=300/>
 
+## Preview
+<img src="./preview/calculator_use.gif" width=700/>
 
 
 ## Setup
