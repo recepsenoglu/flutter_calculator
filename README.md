@@ -46,7 +46,7 @@ Light Theme             |  Dark Theme
 <img src="./preview/light_theme.png" width=300/> | <img src="./preview/dark_theme.png" width=300/>
 
 ## Preview
-<img src="./preview/calculator_use.gif" width=700/>
+<img src="./preview/calculator_use.gif" width=900/>
 
 
 ## Setup
