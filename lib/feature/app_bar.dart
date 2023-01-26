@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../model/theme_model.dart';
-import '../product/widgets/solar_panel_box.dart';
 
 class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
   const CalculatorAppBar({super.key});
@@ -18,16 +17,21 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
       titleSpacing: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _brandName(context),
-          _themeSwitch(context),
-          _solarPanels(),
+        children: const [
+          _BrandName(),
+          _ThemeSwitch(),
+          _SolarPanels(),
         ],
       ),
     );
   }
+}
 
-  Widget _brandName(BuildContext context) {
+class _BrandName extends StatelessWidget {
+  const _BrandName();
+
+  @override
+  Widget build(BuildContext context) {
     const String strCasio = "CASIO";
     const String strCalculator = "CALCULATOR";
 
@@ -44,8 +48,13 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
     );
   }
+}
 
-  Widget _themeSwitch(BuildContext context) {
+class _ThemeSwitch extends StatelessWidget {
+  const _ThemeSwitch();
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: Consumer<ThemeModel>(
         builder: (context, ThemeModel themeProvider, child) {
@@ -56,22 +65,54 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
             },
             activeColor: const Color(0xFF363636),
             trackColor: Colors.white,
-            thumbColor:
-                themeProvider.isDark ? const Color(0xFF75C0D0) : const Color(0xFFEBB04F),
+            thumbColor: themeProvider.isDark
+                ? const Color(0xFF75C0D0)
+                : const Color(0xFFEBB04F),
           );
         },
       ),
     );
   }
+}
 
-  Widget _solarPanels() {
+class _SolarPanels extends StatelessWidget {
+  const _SolarPanels();
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 18, 10, 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            ...List.generate(4, (index) => const SolarPanelBox()),
+            ...List.generate(4, (index) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 4),
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 21,
+                      height: 21,
+                      margin: const EdgeInsets.only(left: 2.5, top: 2.5),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.outline),
+                    ),
+                    Container(
+                      width: 21,
+                      height: 21,
+                      margin: const EdgeInsets.only(right: 2.5, bottom: 2.5),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          border: Border.all(
+                              color: Theme.of(context).colorScheme.outline,
+                              width: 2),
+                          borderRadius: BorderRadius.circular(1)),
+                    ),
+                  ],
+                ),
+              );
+            }),
           ],
         ),
       ),
