@@ -77,6 +77,7 @@ Room for improvement:
 ## Acknowledgements
 - This project's UI design was inspired by [Shubham Singh](https://www.patreon.com/shubham_iosdev)
 - You can view the figma UI design of project that I created by clicking [this link](https://www.figma.com/file/OlzlBexszTvdMqKbgHXiW4/Casio-Calculator-Design?node-id=0%3A1&t=dgzvIzmJdDW1drqZ-1)
+- Medium article about the project [is here](https://medium.com/@recep.senoglu.34/building-a-calculator-app-in-flutter-c0bc070ac0b)
 
 ## Contact
 Created by [@recepsenoglu](https://github.com/recepsenoglu) - feel free to contact me!
