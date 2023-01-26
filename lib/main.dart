@@ -11,8 +11,7 @@ void main() {
       ChangeNotifierProvider<ThemeModel>(create: (_) => ThemeModel()),
       ChangeNotifierProvider<CalculatorModel>(create: (_) => CalculatorModel()),
     ],
-    child: ChangeNotifierProvider(
-        create: (context) => CalculatorModel(), child: const MyApp()),
+    child: const MyApp(),
   ));
 }
 
