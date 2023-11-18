@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/model/theme_model.dart';
+import 'package:flutter_calculator/utils/app_sizes.dart';
 import 'feature/calculator_view.dart';
 import 'model/calculator_model.dart';
 import 'constant/themes.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppSizes.init(context);
     return Consumer<ThemeModel>(
       builder: (context, ThemeModel themeProvider, child) {
         return MaterialApp(

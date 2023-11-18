@@ -13,11 +13,11 @@ class CalculatorView extends StatefulWidget {
 class _CalculatorViewState extends State<CalculatorView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CalculatorAppBar(),
+    return const Scaffold(
+      appBar: CalculatorAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           ScreenWidget(),
           CalculatorKeypad(),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/utils/app_sizes.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../constant/calculator_keys.dart';
@@ -9,15 +10,19 @@ class CalculatorKeypad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppSizes.init(context);
+    double spacings = AppSizes.getHeight(0.02);
+    if (AppSizes.isBigAspectRatio) spacings = AppSizes.getHeight(0.005);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22)
-          .copyWith(bottom: 30),
+      padding: AppSizes.getHorizontalPadding(0.05).copyWith(
+          bottom: AppSizes.isBigAspectRatio ? 10 : AppSizes.getHeight(0.02)),
       child: SizedBox(
         width: double.infinity,
         child: StaggeredGrid.count(
           crossAxisCount: 4,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
+          crossAxisSpacing: spacings,
+          mainAxisSpacing: spacings,
           children: List.generate(19, (index) {
             final String keyLabel = CalculatorKeys.keys.keys.toList()[index];
             final KeyType keyType = CalculatorKeys.keys.values.toList()[index];

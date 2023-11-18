@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/utils/app_sizes.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/calculator_model.dart';
@@ -9,6 +10,7 @@ class ScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppSizes.init(context);
     String result = Provider.of<CalculatorModel>(context).result;
     final List<String> operations =
         Provider.of<CalculatorModel>(context).operations;
@@ -24,7 +26,7 @@ class ScreenWidget extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      padding: AppSizes.getHorizontalPadding(0.05).copyWith(top: 10),
       child: Stack(
         children: [
           CustomPaint(
@@ -36,8 +38,8 @@ class ScreenWidget extends StatelessWidget {
             painter: ScreenCanvas(
                 backgroundColor: Theme.of(context).colorScheme.onSurface),
             child: Container(
-              height: 230,
-              margin: const EdgeInsets.only(bottom: 10, right: 10),
+              height: 200,
+              margin: const EdgeInsets.only(bottom: 0, right: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [

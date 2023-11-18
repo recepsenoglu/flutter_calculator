@@ -25,8 +25,8 @@ class ShadowCanvas extends CustomPainter {
     Path path = Path();
     path.moveTo(100, 10);
     path.lineTo(10, 100);
-    path.lineTo(10, 240);
-    path.lineTo(size.width, 240);
+    path.lineTo(10, 220);
+    path.lineTo(size.width, 220);
     path.lineTo(size.width, 10);
     path.close();
 

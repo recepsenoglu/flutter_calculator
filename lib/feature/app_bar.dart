@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../model/theme_model.dart';
 
-class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
+class CalculatorAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CalculatorAppBar({super.key});
 
   @override
@@ -15,9 +15,9 @@ class CalculatorAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       toolbarHeight: 52,
       titleSpacing: 0,
-      title: Row(
+      title: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           _BrandName(),
           _ThemeSwitch(),
           _SolarPanels(),

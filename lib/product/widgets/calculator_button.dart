@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/utils/app_sizes.dart';
 import '../../utils/action_maker.dart';
 import '../../constant/calculator_keys.dart';
 
@@ -6,11 +7,8 @@ class CalculatorButton extends StatelessWidget {
   final String label;
   final KeyType keyType;
 
-  const CalculatorButton({
-    super.key,
-    required this.label,
-    required this.keyType,
-  });
+  const CalculatorButton(
+      {super.key, required this.label, required this.keyType});
 
   Color? get getLabelColor => keyType == KeyType.helper || label == "%"
       ? const Color(0xFF75C0D0)
@@ -42,10 +40,8 @@ class CalculatorButton extends StatelessWidget {
             child: Center(
               child: Text(
                 label,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(color: getLabelColor),
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    color: getLabelColor, fontSize: AppSizes.getWidth(0.08)),
               ),
             ),
           ),
