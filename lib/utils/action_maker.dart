@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_calculator/model/calculator_model.dart';
-import 'package:flutter_calculator/constant/calculator_keys.dart';
 import 'package:provider/provider.dart';
+
+import '../constant/calculator_keys.dart';
+import '../model/calculator_model.dart';
 
 class ActionMaker {
   static void keyPressed(BuildContext context, String value, KeyType keyType) {

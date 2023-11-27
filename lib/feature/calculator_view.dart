@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/feature/app_bar.dart';
-import 'package:flutter_calculator/product/widgets/calculator_keypad.dart';
+
+import '../product/widgets/calculator_keypad.dart';
 import '../product/widgets/screen_widget.dart';
+import 'app_bar.dart';
 
 class CalculatorView extends StatefulWidget {
   const CalculatorView({super.key});

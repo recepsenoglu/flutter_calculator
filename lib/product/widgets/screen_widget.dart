@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/utils/app_sizes.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/calculator_model.dart';
+import '../../utils/app_sizes.dart';
 import '../canvas/_exports.dart';
 
 class ScreenWidget extends StatelessWidget {

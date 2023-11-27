@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/utils/app_sizes.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../constant/calculator_keys.dart';
+import '../../utils/app_sizes.dart';
 import 'calculator_button.dart';
 
 class CalculatorKeypad extends StatelessWidget {

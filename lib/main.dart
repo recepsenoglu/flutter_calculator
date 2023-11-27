@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/model/theme_model.dart';
-import 'package:flutter_calculator/utils/app_sizes.dart';
+import 'package:provider/provider.dart';
+
+import 'constant/themes.dart';
 import 'feature/calculator_view.dart';
 import 'model/calculator_model.dart';
-import 'constant/themes.dart';
-import 'package:provider/provider.dart';
+import 'model/theme_model.dart';
+import 'utils/app_sizes.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeModel>(
       builder: (context, ThemeModel themeProvider, child) {
         return MaterialApp(
-          title: 'Flutter Calculator App',
+          title: 'Casio Calculator',
           home: const CalculatorView(),
           themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
           theme: lightTheme,
