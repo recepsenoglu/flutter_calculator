@@ -28,9 +28,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Vintage Calculator',
           home: const CalculatorView(),
+          debugShowCheckedModeBanner: false,
           themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
-          theme: lightTheme,
           darkTheme: darkTheme,
+          theme: lightTheme,
         );
       },
     );
