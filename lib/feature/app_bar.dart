@@ -32,7 +32,7 @@ class _BrandName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String strCasio = "VINTAGE";
+    const String strBrand = "VINTAGE";
     const String strCalculator = "CALCULATOR";
 
     return Expanded(
@@ -41,7 +41,7 @@ class _BrandName extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(strCasio, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 16)),
+            Text(strBrand, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 16)),
             Text(strCalculator, style: Theme.of(context).textTheme.titleSmall),
           ],
         ),
