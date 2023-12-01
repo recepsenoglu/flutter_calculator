@@ -32,7 +32,7 @@ class _BrandName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String strCasio = "CASIO";
+    const String strCasio = "VINTAGE";
     const String strCalculator = "CALCULATOR";
 
     return Expanded(
@@ -41,7 +41,7 @@ class _BrandName extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(strCasio, style: Theme.of(context).textTheme.titleMedium),
+            Text(strCasio, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 16)),
             Text(strCalculator, style: Theme.of(context).textTheme.titleSmall),
           ],
         ),
@@ -55,22 +55,20 @@ class _ThemeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Consumer<ThemeModel>(
-        builder: (context, ThemeModel themeProvider, child) {
-          return CupertinoSwitch(
-            value: themeProvider.isDark,
-            onChanged: (isDark) {
-              themeProvider.changeTheme(isDark);
-            },
-            activeColor: const Color(0xFF363636),
-            trackColor: Colors.white,
-            thumbColor: themeProvider.isDark
-                ? const Color(0xFF75C0D0)
-                : const Color(0xFFEBB04F),
-          );
-        },
-      ),
+    return Consumer<ThemeModel>(
+      builder: (context, ThemeModel themeProvider, child) {
+        return CupertinoSwitch(
+          value: themeProvider.isDark,
+          onChanged: (isDark) {
+            themeProvider.changeTheme(isDark);
+          },
+          activeColor: const Color(0xFF363636),
+          trackColor: Colors.white,
+          thumbColor: themeProvider.isDark
+              ? const Color(0xFF75C0D0)
+              : const Color(0xFFEBB04F),
+        );
+      },
     );
   }
 }

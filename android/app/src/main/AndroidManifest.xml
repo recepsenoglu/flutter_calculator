@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.recepsenoglu.casiocalculator">
+    package="com.recepsenoglu.calculator">
    <application
         android:label="Casio Calculator"
         android:name="${applicationName}"

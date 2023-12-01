@@ -1,4 +1,4 @@
-package com.recepsenoglu.casiocalculator
+package com.recepsenoglu.calculator
 
 import io.flutter.embedding.android.FlutterActivity
 

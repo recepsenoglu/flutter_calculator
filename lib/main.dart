@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeModel>(
       builder: (context, ThemeModel themeProvider, child) {
         return MaterialApp(
-          title: 'Casio Calculator',
+          title: 'Vintage Calculator',
           home: const CalculatorView(),
           themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
           theme: lightTheme,
