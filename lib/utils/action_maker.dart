@@ -37,6 +37,12 @@ class ActionMaker {
         }
       }
     } else {
+      if (operations.isNotEmpty) {
+        if (lastValue!.length > 8) {
+          return;
+        }
+      }
+
       if (lastValueType == KeyType.operator) {
         if (value != "0" && value != ".") {
           provider.addToOperations(value);

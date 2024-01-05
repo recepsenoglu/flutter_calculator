@@ -26,7 +26,8 @@ class ScreenWidget extends StatelessWidget {
     }
 
     return Padding(
-      padding: AppSizes.getHorizontalPadding(0.05).copyWith(top: 10),
+      padding: AppSizes.getHorizontalPadding(0.05)
+          .copyWith(top: AppSizes.getHeight(0.01)),
       child: Stack(
         children: [
           CustomPaint(
@@ -36,39 +37,60 @@ class ScreenWidget extends StatelessWidget {
           ),
           CustomPaint(
             painter: ScreenCanvas(
-                backgroundColor: Theme.of(context).colorScheme.onSurface),
+              backgroundColor: Theme.of(context).colorScheme.onSurface,
+            ),
             child: Container(
-              height: 200,
-              margin: const EdgeInsets.only(bottom: 0, right: 10),
+              height: AppSizes.getHeight(0.26),
+              margin: EdgeInsets.only(right: AppSizes.getWidth(0.02)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(32, 0, 22, 0),
-                    child: Text(
-                      operationHistory,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.displayMedium,
+                  Expanded(
+                    child: Padding(
+                      padding: AppSizes.getHorizontalPadding(0.05).copyWith(
+                        top: AppSizes.getHeight(0.02),
+                        left: AppSizes.getWidth(0.06),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            operationHistory,
+                            maxLines: 2,
+                            textAlign: TextAlign.right,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium
+                                ?.copyWith(
+                                  fontSize: AppSizes.getWidth(0.05),
+                                ),
+                          ),
+                          Text(
+                            result,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.right,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayLarge
+                                ?.copyWith(
+                                  fontSize: result.length > 13
+                                      ? AppSizes.getWidth(0.09)
+                                      : AppSizes.getWidth(0.13),
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
-                    child: Text(
-                      result,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.displayLarge,
-                    ),
-                  ),
-                  const Spacer(),
                   Container(
-                    height: 16,
+                    height: AppSizes.getHeight(0.02),
                     color: Theme.of(context).colorScheme.primaryContainer,
                   ),
                   Container(
-                    height: 16,
+                    height: AppSizes.getHeight(0.02),
                     color: Theme.of(context).colorScheme.secondaryContainer,
                   )
                 ],
