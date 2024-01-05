@@ -43,23 +43,19 @@ class ActionMaker {
         }
       }
 
-      if (lastValueType == KeyType.operator) {
-        if (value != "0" && value != ".") {
+      if (lastValue == null || lastValueType == KeyType.operator) {
+        if (value == ".") {
+          provider.addToOperations("0.");
+        } else if (value != "0") {
           provider.addToOperations(value);
         }
       } else {
-        if (lastValue == null) {
-          if (value != "0" && value != ".") {
-            provider.addToOperations(value);
-          }
-        } else {
-          if (value == ".") {
-            if (lastValue.contains(".") == false) {
-              provider.updateLastOperation(lastValue + value);
-            }
-          } else {
+        if (value == ".") {
+          if (lastValue.contains(".") == false) {
             provider.updateLastOperation(lastValue + value);
           }
+        } else {
+          provider.updateLastOperation(lastValue + value);
         }
       }
     }

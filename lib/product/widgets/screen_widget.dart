@@ -76,7 +76,7 @@ class ScreenWidget extends StatelessWidget {
                                 .textTheme
                                 .displayLarge
                                 ?.copyWith(
-                                  fontSize: result.length > 13
+                                  fontSize: result.length > 10
                                       ? AppSizes.getWidth(0.09)
                                       : AppSizes.getWidth(0.13),
                                 ),
