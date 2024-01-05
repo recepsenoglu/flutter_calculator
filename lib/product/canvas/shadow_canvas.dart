@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 class ShadowCanvas extends CustomPainter {
   ShadowCanvas({
+    required this.width,
+    required this.height,
+    this.margin = 10,
     this.backgroundColor,
   });
 
+  final double width;
+  final double height;
+  final double margin;
   final Color? backgroundColor;
 
   @override
@@ -23,11 +29,11 @@ class ShadowCanvas extends CustomPainter {
     final Paint paint = Paint()..shader = gradient.createShader(colorBounds);
 
     Path path = Path();
-    path.moveTo(100, 10);
-    path.lineTo(10, 100);
-    path.lineTo(10, 220);
-    path.lineTo(size.width, 220);
-    path.lineTo(size.width, 10);
+    path.moveTo(width / 5 + margin, margin);
+    path.lineTo(margin, height / 3 + margin);
+    path.lineTo(margin, height + margin);
+    path.lineTo(width, height + margin);
+    path.lineTo(width, margin);
     path.close();
 
     canvas.drawPath(path, paint);

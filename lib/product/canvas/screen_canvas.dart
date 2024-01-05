@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 class ScreenCanvas extends CustomPainter {
   ScreenCanvas({
+    required this.width,
+    required this.height,
+    this.margin = 10,
     this.backgroundColor,
   });
 
+  final double width;
+  final double height;
+  final double margin;
   final Color? backgroundColor;
 
   @override
@@ -25,11 +31,11 @@ class ScreenCanvas extends CustomPainter {
       ..strokeWidth = 5;
 
     Path path = Path();
-    path.moveTo(75, 0);
-    path.lineTo(0, 65);
-    path.lineTo(0, 210);
-    path.lineTo(size.width - 10, 210);
-    path.lineTo(size.width - 10, 0);
+    path.moveTo(width / 5, 0);
+    path.lineTo(0, height / 3);
+    path.lineTo(0, height);
+    path.lineTo(width - margin, height);
+    path.lineTo(width - margin, 0);
     path.close();
 
     canvas.drawPath(path, paint);

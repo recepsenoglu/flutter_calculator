@@ -32,11 +32,16 @@ class ScreenWidget extends StatelessWidget {
         children: [
           CustomPaint(
             painter: ShadowCanvas(
-                backgroundColor: Theme.of(context).colorScheme.shadow),
+              width: AppSizes.getWidth(0.9),
+              height: AppSizes.getHeight(0.26),
+              backgroundColor: Theme.of(context).colorScheme.shadow,
+            ),
             child: Container(),
           ),
           CustomPaint(
             painter: ScreenCanvas(
+              width: AppSizes.getWidth(0.9),
+              height: AppSizes.getHeight(0.26),
               backgroundColor: Theme.of(context).colorScheme.onSurface,
             ),
             child: Container(
@@ -99,7 +104,10 @@ class ScreenWidget extends StatelessWidget {
           ),
           CustomPaint(
             painter: BorderCanvas(
-                backgroundColor: Theme.of(context).colorScheme.shadow),
+              width: AppSizes.getWidth(0.9),
+              height: AppSizes.getHeight(0.26),
+              backgroundColor: Theme.of(context).colorScheme.shadow,
+            ),
             child: Container(),
           ),
         ],
