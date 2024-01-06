@@ -44,36 +44,33 @@ class _CalculatorButtonState extends State<CalculatorButton> {
       onTapDown: (details) => updateIsPressing(true),
       onTapUp: (details) => updateIsPressing(false),
       onTapCancel: () => updateIsPressing(false),
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: Stack(children: [
-          Container(
-            margin: const EdgeInsets.only(top: 4, left: 4),
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.shadow,
-                borderRadius: BorderRadius.circular(14)),
+      child: Stack(children: [
+        Container(
+          margin: const EdgeInsets.only(top: 4, left: 4),
+          decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.shadow,
+              borderRadius: BorderRadius.circular(14)),
+        ),
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 100),
+          margin: isPressing
+              ? const EdgeInsets.only(top: 4, left: 4)
+              : const EdgeInsets.only(bottom: 4, right: 4),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.onSurface,
+            border: Border.all(
+                color: Theme.of(context).colorScheme.shadow, width: 3.5),
+            borderRadius: BorderRadius.circular(10),
           ),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
-            margin: isPressing
-                ? const EdgeInsets.only(top: 4, left: 4)
-                : const EdgeInsets.only(bottom: 4, right: 4),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.onSurface,
-              border: Border.all(
-                  color: Theme.of(context).colorScheme.shadow, width: 3.5),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                widget.label,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: labelColor, fontSize: AppSizes.getWidth(0.08)),
-              ),
+          child: Center(
+            child: Text(
+              widget.label,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: labelColor, fontSize: AppSizes.getWidth(0.08)),
             ),
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 }
