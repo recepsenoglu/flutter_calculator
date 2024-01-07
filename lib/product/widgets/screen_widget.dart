@@ -25,9 +25,9 @@ class ScreenWidget extends StatelessWidget {
       }
     }
 
-    return Padding(
-      padding: AppSizes.getHorizontalPadding(0.05)
-          .copyWith(top: AppSizes.getHeight(0.01)),
+    return Container(
+      margin: AppSizes.getSymmetricPadding(0.05, 0.01)
+          .copyWith(bottom: AppSizes.getHeight(0.02)),
       child: Stack(
         children: [
           CustomPaint(

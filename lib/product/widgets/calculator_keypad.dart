@@ -16,46 +16,45 @@ class CalculatorKeypad extends StatelessWidget {
     double crossAxisSpacing = mainAxisSpacing;
 
     double maxWidth = AppSizes.getWidth(0.95);
-    double maxHeight = AppSizes.getHeight(0.61);
+    double maxHeight = AppSizes.getHeight(0.6);
     int columns = 4;
     int rows = 5;
 
     double gridWidth = maxWidth - (crossAxisSpacing * (columns - 1));
     double buttonHeight = gridWidth / columns;
-    double keypadHeight = buttonHeight * 5 + (mainAxisSpacing * 4);
+    double keypadHeight = buttonHeight * rows + (mainAxisSpacing * (rows - 1));
 
     if (keypadHeight > maxHeight) {
-      double mainAxisSpacings = mainAxisSpacing * (columns - 1);
+      double mainAxisSpacings = mainAxisSpacing * (rows - 1);
       double newButtonHeight = (maxHeight - mainAxisSpacings) / rows;
+
       mainAxisCellCount = newButtonHeight / buttonHeight;
     }
 
     return SizedBox(
       height: maxHeight,
-      child: Padding(
-        padding: AppSizes.getSymmetricPadding(0.05, 0.01),
-        child: Container(
-          width: double.infinity,
-          alignment: Alignment.bottomCenter,
-          child: StaggeredGrid.count(
-            crossAxisCount: 4,
-            mainAxisSpacing: mainAxisSpacing,
-            crossAxisSpacing: crossAxisSpacing,
-            children: List.generate(19, (index) {
-              final String keyLabel = CalculatorKeys.keys.keys.toList()[index];
-              final KeyType keyType =
-                  CalculatorKeys.keys.values.toList()[index];
+      child: Container(
+        width: double.infinity,
+        margin: AppSizes.getHorizontalPadding(0.05)
+            .copyWith(bottom: AppSizes.getHeight(0.02)),
+        alignment: Alignment.bottomCenter,
+        child: StaggeredGrid.count(
+          crossAxisCount: 4,
+          mainAxisSpacing: mainAxisSpacing,
+          crossAxisSpacing: crossAxisSpacing,
+          children: List.generate(19, (index) {
+            final String keyLabel = CalculatorKeys.keys.keys.toList()[index];
+            final KeyType keyType = CalculatorKeys.keys.values.toList()[index];
 
-              return StaggeredGridTile.count(
-                crossAxisCellCount: index == 16 ? 2 : 1,
-                mainAxisCellCount: mainAxisCellCount,
-                child: CalculatorButton(
-                  label: keyLabel,
-                  keyType: keyType,
-                ),
-              );
-            }),
-          ),
+            return StaggeredGridTile.count(
+              crossAxisCellCount: index == 16 ? 2 : 1,
+              mainAxisCellCount: mainAxisCellCount,
+              child: CalculatorButton(
+                label: keyLabel,
+                keyType: keyType,
+              ),
+            );
+          }),
         ),
       ),
     );
