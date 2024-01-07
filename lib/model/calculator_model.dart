@@ -7,6 +7,8 @@ class CalculatorModel extends ChangeNotifier {
   List<String> get operations => _operations;
   String get result => _result;
 
+  CalculatorModel();
+
   void updateResult(String value) {
     _result = value;
     notifyListeners();
