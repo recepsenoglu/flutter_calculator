@@ -46,7 +46,7 @@ class ScreenWidget extends StatelessWidget {
             ),
             child: Container(
               height: AppSizes.getHeight(0.26),
-              margin: EdgeInsets.only(right: AppSizes.getWidth(0.02)),
+              margin: const EdgeInsets.only(right: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [

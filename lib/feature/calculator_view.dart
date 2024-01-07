@@ -21,7 +21,7 @@ class _CalculatorViewState extends State<CalculatorView> {
       child: const Scaffold(
         appBar: CalculatorAppBar(),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ScreenWidget(),
             CalculatorKeypad(),
