@@ -13,7 +13,7 @@ class CalculatorAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       centerTitle: true,
       leadingWidth: AppSizes.getWidth(0.32),
-      toolbarHeight: AppSizes.getHeight(0.08),
+      toolbarHeight: AppSizes.getHeight(0.07),
       title: const _ThemeSwitch(),
       leading: const _BrandName(),
       actions: const [_SolarPanels()],
@@ -21,7 +21,7 @@ class CalculatorAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(AppSizes.getHeight(0.08));
+  Size get preferredSize => Size.fromHeight(AppSizes.getHeight(0.07));
 }
 
 class _BrandName extends StatelessWidget {
