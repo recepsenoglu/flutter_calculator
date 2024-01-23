@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -12,15 +11,12 @@ class CalculatorKeypad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppSizes.init(context);
     double mainAxisCellCount = 1;
     double mainAxisSpacing = AppSizes.getHeight(0.015);
     double crossAxisSpacing = mainAxisSpacing;
 
     double maxWidth = AppSizes.getWidth(0.95);
-    double maxHeight = Platform.isIOS
-              ? AppSizes.getHeight(0.55)
-              : AppSizes.getHeight(0.6);
+    double maxHeight = AppSizes.getHeight(0.62);
     int columns = 4;
     int rows = 5;
 

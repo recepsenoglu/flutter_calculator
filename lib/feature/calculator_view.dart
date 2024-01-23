@@ -18,14 +18,17 @@ class _CalculatorViewState extends State<CalculatorView> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<CalculatorModel>(
       create: (_) => CalculatorModel(),
-      child: const Scaffold(
-        appBar: CalculatorAppBar(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ScreenWidget(),
-            CalculatorKeypad(),
-          ],
+      child: const SafeArea(
+        top: false,
+        child: Scaffold(
+          appBar: CalculatorAppBar(),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ScreenWidget(),
+              CalculatorKeypad(),
+            ],
+          ),
         ),
       ),
     );

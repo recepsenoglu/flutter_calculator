@@ -9,7 +9,7 @@ class AppSizes {
   static void init(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     _screenWidth = size.width;
-    _screenHeight = size.height;
+    _screenHeight = size.height - MediaQuery.of(context).padding.top - MediaQuery.of(context).padding.bottom;
 
     _padding = MediaQuery.paddingOf(context);
   }

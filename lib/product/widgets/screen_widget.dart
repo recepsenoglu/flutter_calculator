@@ -10,7 +10,6 @@ class ScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppSizes.init(context);
     String result = Provider.of<CalculatorModel>(context).result;
     final List<String> operations =
         Provider.of<CalculatorModel>(context).operations;
@@ -26,8 +25,7 @@ class ScreenWidget extends StatelessWidget {
     }
 
     return Container(
-      margin: AppSizes.getSymmetricPadding(0.05, 0.01)
-          .copyWith(bottom: AppSizes.getHeight(0.02)),
+      margin: AppSizes.getSymmetricPadding(0.05, 0.02),
       child: Stack(
         children: [
           CustomPaint(
