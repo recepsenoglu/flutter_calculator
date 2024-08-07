@@ -75,8 +75,8 @@ class _ThemeSwitch extends StatelessWidget {
         themeModel.isDark = value;
       },
       activeColor: const Color(0xFF363636),
-      trackColor: MaterialStateProperty.all<Color>(Colors.black),
-      thumbColor: MaterialStateProperty.all<Color>(
+      trackColor: WidgetStateProperty.all<Color>(Colors.black),
+      thumbColor: WidgetStateProperty.all<Color>(
         themeModel.isDark ? const Color(0xFF75C0D0) : const Color(0xFFEBB04F),
       ),
     );
